@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SideMenu from "./components/SideMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className="sticky top-0 inset-x-0 z-50 group">
+  <header className="relative h-12 mx-auto border-b duration-200  border-ui-border-base">
+    <SideMenu/>
+    </header>
+        {children}
+        </div></body>
     </html>
   );
 }
