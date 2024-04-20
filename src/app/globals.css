@@ -149,6 +149,8 @@ body {
   .mobile-banner__container {
     flex-direction: column;
     justify-content: flex-start;
+    position: absolute;
+    z-index: -1;
   }
 
   .animate-iphone-left {
