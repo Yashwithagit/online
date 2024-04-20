@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  ---dark-radish-brown: #A03232;
+  --primary-green: green;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,16 +20,142 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.nav-item {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08rem;
+  text-underline-offset: 0.9rem;
+  transition: text-underline-offset 0.1s ease-in-out;
+  line-height: 1.4rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.1rem var(--primary-green);
+  letter-spacing: 0.2rem;
+  text-align: center;
+
+
+}
+
+.title {
+  background-image: url(/section-title1.webp);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  transform: rotate(15deg);
+  transform: translate(-20px, 0px);
+}
+
+
+
+.logo {
+  background-image: url('/logo.gif');
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* animation code */
+
+.animate-iphone-up {
+  animation: iphone-movement-up 2s ease-in-out infinite;
+}
+
+.animate-iphone-down {
+  animation: iphone-movement-down 2s ease-in-out infinite;
+}
+
+
+/* keyframes */
+
+@keyframes iphone-movement-down { 
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes iphone-movement-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-200vh);
+  }
+}
+
+@keyframes iphone-movement-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-12vw);
+  }
+}
+
+@keyframes iphone-movement-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(12vw);
+  }
+}
+
+/* media queries */
+@media screen and (min-width:1024px) {
+  .iphone-img__container {
+    overflow: hidden;
+    height: 75%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .title {
+    text-align: center;
+    margin: 4rem 0rem 0rem 4rem;
+  }
+
+  .mobile-banner__container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .animate-iphone-left {
+    animation: iphone-movement-left 2s ease-in-out infinite;
+  }
+
+  .animate-iphone-right {
+    animation: iphone-movement-right 2s ease-in-out infinite;
   }
 }
